@@ -24,11 +24,13 @@ EIA_PARAMS = {
     "length": 5000
 }
 
+
 def sanitize_filename(name: str) -> str:
     """Sanitize and timestamp filenames."""
     base = name.replace(" ", "_").replace("/", "-")
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     return f"{timestamp}_{base}.json"
+
 
 def save_json(data: dict, filename: str) -> str:
     """Save a JSON payload to file with sanitized name."""
@@ -37,6 +39,7 @@ def save_json(data: dict, filename: str) -> str:
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     return str(filepath)
+
 
 def fetch_eia_data():
     """Pull data from EIA API and save locally."""
@@ -56,6 +59,7 @@ def fetch_eia_data():
     except Exception as e:
         print(f"❌ Failed to fetch EIA data: {e}")
         return None
+
 
 if __name__ == "__main__":
     fetch_eia_data()

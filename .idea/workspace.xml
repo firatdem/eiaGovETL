@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d51ee78-718c-4891-a082-ac2017b39f71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snowflake_load_service/snowflake_load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eiaGovPipeline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eiaGovPipeline.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1d51ee78-718c-4891-a082-ac2017b39f71" name="Changes" comment="Finished individual pipeline pieces. &#10;&#10;TODO: &#10;Create a controller in main.py&#10;create a DAG to automate&#10;Create a 4th step of visuals, or dashboards (not sure yet)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/20250701_134915_eia_hourly_data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extraction_service/eia_ingestion_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/extraction_service/eia_ingestion_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snowflake_load_service/snowflake_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/snowflake_load_service/snowflake_load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transform_service/clean_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/transform_service/clean_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +48,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.clean_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.eia_ingestion_service.executor&quot;: &quot;Run&quot;,
-    &quot;Python.snowflake_load.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.clean_data.executor": "Run",
+    "Python.eia_ingestion_service.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.snowflake_load.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="eiaGovPipeline" />
@@ -140,13 +140,22 @@
       <option name="project" value="LOCAL" />
       <updated>1751392210326</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished individual pipeline pieces. &#10;&#10;TODO: &#10;Create a controller in main.py&#10;create a DAG to automate&#10;Create a 4th step of visuals, or dashboards (not sure yet)">
+      <option name="closed" value="true" />
+      <created>1751398117992</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751398117992</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="First Commit - gith" />
     <MESSAGE value="changed structure - read me begun as well, build as we build. easier than recap" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed structure - read me begun as well, build as we build. easier than recap" />
+    <MESSAGE value="Finished individual pipeline pieces. &#10;&#10;TODO: &#10;Create a controller in main.py&#10;create a DAG to automate&#10;Create a 4th step of visuals, or dashboards (not sure yet)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished individual pipeline pieces. &#10;&#10;TODO: &#10;Create a controller in main.py&#10;create a DAG to automate&#10;Create a 4th step of visuals, or dashboards (not sure yet)" />
   </component>
 </project>

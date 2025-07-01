@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from extraction_service.eia_ingestion_service import fetch_eia_data
+from transform_service.clean_data import transform_latest_json
+from snowflake_load_service.snowflake_load import upload_to_snowflake
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def run_pipeline():
+    if not fetch_eia_data():
+        print("❌ Extraction failed")
+        return
+    if not transform_latest_json():
+        print("❌ Transformation failed")
+        return
+    if not upload_to_snowflake():
+        print("❌ Load to Snowflake failed")
+        return
+    print("✅ Pipeline completed successfully!")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+if __name__ == "__main__":
+    run_pipeline()

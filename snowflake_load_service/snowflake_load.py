@@ -76,3 +76,48 @@ print("✅ REGIONS_DIM uploaded:", success_1, f"{nrows_1} rows")
 print("✅ POWER_USAGE_FACT uploaded:", success_2, f"{nrows_2} rows")
 
 conn.close()
+
+
+def upload_to_snowflake() -> bool:
+    """Modular load function for controller."""
+    try:
+        csv_files = glob.glob(str(TRANSFORMED_DIR / "*.csv"))
+        latest_file = max(csv_files, key=os.path.getctime)
+        print(f"📂 Loading file: {latest_file}")
+        df = pd.read_csv(latest_file)
+
+        df = df.rename(columns={
+            'subba-name': 'subba_name',
+            'parent-name': 'parent_name',
+            'value-units': 'value_units'
+        })
+
+        regions_dim = df[['sub_region_code', 'subba_name', 'parent', 'parent_name', 'timezone']].drop_duplicates()
+        power_usage_fact = df[['timestamp', 'demand_mwh', 'value_units', 'sub_region_code']].copy()
+        power_usage_fact.insert(0, 'usage_id', range(1, len(power_usage_fact) + 1))
+
+        regions_dim = regions_dim.reset_index(drop=True)
+        power_usage_fact = power_usage_fact.reset_index(drop=True)
+        regions_dim.columns = [col.upper() for col in regions_dim.columns]
+        power_usage_fact.columns = [col.upper() for col in power_usage_fact.columns]
+
+        conn = snowflake.connector.connect(
+            user=os.getenv('SNOWFLAKE_USER'),
+            password=os.getenv('SNOWFLAKE_PASSWORD'),
+            account=os.getenv('SNOWFLAKE_ACCOUNT'),
+            warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
+            database=os.getenv('SNOWFLAKE_DATABASE'),
+            schema=os.getenv('SNOWFLAKE_SCHEMA')
+        )
+
+        success_1, _, nrows_1, _ = write_pandas(conn, regions_dim, 'REGIONS_DIM', overwrite=True)
+        success_2, _, nrows_2, _ = write_pandas(conn, power_usage_fact, 'POWER_USAGE_FACT', overwrite=True)
+        print("✅ REGIONS_DIM uploaded:", success_1, f"{nrows_1} rows")
+        print("✅ POWER_USAGE_FACT uploaded:", success_2, f"{nrows_2} rows")
+        conn.close()
+
+        return success_1 and success_2
+
+    except Exception as e:
+        print(f"❌ Load to Snowflake failed: {e}")
+        return False

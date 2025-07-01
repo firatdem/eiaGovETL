@@ -50,6 +50,20 @@ def save_transformed_data(df: pd.DataFrame, original_file: Path) -> Path:
     return path
 
 
+def transform_latest_json() -> Path:
+    """Wrapper to run full transformation pipeline on the latest raw JSON."""
+    try:
+        latest_file = sorted(DATA_DIR.glob("*_eia_hourly_data.json"))[-1]
+        raw = load_raw_json(latest_file)
+        df = transform_eia_data(raw)
+        path = save_transformed_data(df, latest_file)
+        print(f"✅ Transformed data saved to {path}")
+        return path
+    except Exception as e:
+        print(f"❌ Transformation failed: {e}")
+        return None
+
+
 if __name__ == "__main__":
     latest_file = sorted(DATA_DIR.glob("*_eia_hourly_data.json"))[-1]
     raw = load_raw_json(latest_file)
