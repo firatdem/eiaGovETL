@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d51ee78-718c-4891-a082-ac2017b39f71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transform_service/clean_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eia_ingestion_service.py" beforeDir="false" />
-    </list>
+    <list default="true" id="1d51ee78-718c-4891-a082-ac2017b39f71" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,12 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1751390565259</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed structure - read me begun as well, build as we build. easier than recap">
+      <option name="closed" value="true" />
+      <created>1751392196000</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751392196000</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="First Commit - gith" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit - gith" />
+    <MESSAGE value="changed structure - read me begun as well, build as we build. easier than recap" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed structure - read me begun as well, build as we build. easier than recap" />
   </component>
 </project>
