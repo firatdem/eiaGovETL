@@ -21,7 +21,11 @@ const columns = [
   }),
   columnHelper.accessor("datetime", {
     header: "Datetime",
-    cell: info => info.getValue()
+    cell: info => {
+    const val = info.getValue();
+    return val ? new Date(val).toLocaleString() : "N/A";
+}
+
   }),
   columnHelper.accessor("usage_mw", {
     header: "Usage (MW)",

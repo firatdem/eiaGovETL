@@ -207,3 +207,64 @@ eiaGovPipeline/
 ```
 
 ---
+
+# Step 4: Frontend Dashboard (React + TypeScript)
+
+This step introduces a fully interactive frontend dashboard to explore regional electricity usage data queried from Snowflake.
+
+---
+
+## Features
+
+- ✅ Region filter via dropdown (`/api/regions`)
+- ✅ Fetches demand data via FastAPI (`/api/data?region=...`)
+- ✅ Usage (MWh) bar chart for the most recent 20 records
+- ✅ Responsive data table (powered by TanStack Table)
+- ✅ Fully typed frontend using React + TypeScript
+
+---
+
+## Tech Stack
+
+- [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- [Chart.js](https://www.chartjs.org/) via [`react-chartjs-2`](https://react-chartjs-2.js.org/)
+- [TanStack Table](https://tanstack.com/table) for tabular view
+- [FastAPI](https://fastapi.tiangolo.com/) as API backend
+- [Vite](https://vitejs.dev/) for frontend bundling
+
+---
+
+## File Structure
+
+```bash
+eiaGovPipeline/
+├── frontend/
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── components/
+│   │   │   ├── UsageChart.tsx
+│   │   │   └── DataTable.tsx
+│   │   └── main.tsx
+│   ├── index.html
+│   ├── package.json
+│   ├── tsconfig.app.json
+│   └── .env  # Optional: REACT_APP_API_URL=http://localhost:8000
+```
+
+## Setup Instructions
+
+Install frontend dependencies
+```bash
+cd frontend
+npm install
+```
+(Optional) Configure .env
+
+```bash
+REACT_APP_API_URL=http://localhost:8000
+Run the frontend locally
+```
+```bash
+npm run dev
+Then open: http://localhost:5173
+```
