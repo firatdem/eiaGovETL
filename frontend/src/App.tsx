@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import DataTable from './components/DataTable';
 import UsageChart from './components/UsageChart';
 

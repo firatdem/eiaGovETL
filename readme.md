@@ -1,3 +1,36 @@
+# EIA Electricity Demand Pipeline & Dashboard ⚡
+
+This project provides an end-to-end pipeline to ingest, transform, and visualize electricity demand data from the U.S. Energy Information Administration (EIA). It includes:
+
+- ✅ Python-based ETL pipeline
+- ✅ Snowflake warehouse integration
+- ✅ React + TypeScript dashboard
+- ✅ Dockerized deployment
+
+---
+
+## 🚀 Quick Start with Docker
+
+You can run the entire pipeline, backend API, and frontend dashboard using Docker:
+
+```bash
+docker-compose up --build
+```
+
+## Make sure you set up your env to connect to your Snowflake DB!
+```bash
+EIA_API_KEY=your_eia_key
+SNOWFLAKE_USER=your_user
+SNOWFLAKE_PASSWORD=your_password
+SNOWFLAKE_ACCOUNT=your_account.region
+SNOWFLAKE_WAREHOUSE=your_warehouse
+SNOWFLAKE_DATABASE=your_database
+SNOWFLAKE_SCHEMA=your_schema
+SNOWFLAKE_ROLE=your_role
+```
+Then visit the live dashboard at:
+👉 http://localhost:3000
+
 # Step 1: Data Ingestion
 
 This pipeline begins by pulling **hourly electricity demand data** from the [U.S. Energy Information Administration (EIA)](https://www.eia.gov/opendata/) using their open API.
@@ -268,3 +301,4 @@ Run the frontend locally
 npm run dev
 Then open: http://localhost:5173
 ```
+![alt text](image.png)

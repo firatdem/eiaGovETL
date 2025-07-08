@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY . .
+
+RUN pip install --upgrade pip && \
+    pip install pandas requests snowflake-connector-python python-dotenv "pyarrow<19.0.0"
+
+CMD ["python", "main.py"]
