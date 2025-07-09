@@ -1,5 +1,7 @@
 # EIA Electricity Demand Pipeline & Dashboard ⚡
 
+![alt text](image.png)
+
 This project provides an end-to-end pipeline to ingest, transform, and visualize electricity demand data from the U.S. Energy Information Administration (EIA). It includes:
 
 - ✅ Python-based ETL pipeline
@@ -30,6 +32,8 @@ SNOWFLAKE_ROLE=your_role
 ```
 Then visit the live dashboard at:
 👉 http://localhost:3000
+
+EIA API --> Extraction Script --> Cleaned CSV --> Snowflake DB --> FastAPI --> React Dashboard
 
 # Step 1: Data Ingestion
 
@@ -301,4 +305,3 @@ Run the frontend locally
 npm run dev
 Then open: http://localhost:5173
 ```
-![alt text](image.png)
