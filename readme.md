@@ -1,17 +1,17 @@
-# EIA Electricity Demand Pipeline & Dashboard ⚡
+# EIA Electricity Demand Pipeline & Dashboard
 
 ![alt text](image.png)
 
 This project provides an end-to-end pipeline to ingest, transform, and visualize electricity demand data from the U.S. Energy Information Administration (EIA). It includes:
 
-- ✅ Python-based ETL pipeline
-- ✅ Snowflake warehouse integration
-- ✅ React + TypeScript dashboard
-- ✅ Dockerized deployment
+- Python-based ETL pipeline
+- Snowflake warehouse integration
+- React + TypeScript dashboard
+- Dockerized deployment
 
 ---
 
-## 🚀 Quick Start with Docker
+## Quick Start with Docker
 
 You can run the entire pipeline, backend API, and frontend dashboard using Docker:
 
@@ -31,7 +31,7 @@ SNOWFLAKE_SCHEMA=your_schema
 SNOWFLAKE_ROLE=your_role
 ```
 Then visit the live dashboard at:
-👉 http://localhost:3000
+http://localhost:3000
 
 EIA API --> Extraction Script --> Cleaned CSV --> Snowflake DB --> FastAPI --> React Dashboard
 
@@ -110,7 +110,7 @@ python extraction_service/eia_ingestion_service.py
 ## Example Output
 
 ```
-✅ Data saved to data/20250701_133219_eia_hourly_data.json
+Data saved to data/20250701_133219_eia_hourly_data.json
 ```
 
 ---
@@ -163,7 +163,7 @@ eiaGovPipeline/
 ## Example Output
 
 ```
-✅ Cleaned data saved to data/20250701_135037_transformed.csv
+Cleaned data saved to data/20250701_135037_transformed.csv
 ```
 
 ---
@@ -238,9 +238,9 @@ eiaGovPipeline/
 ## Example Output
 
 ```
-📂 Loading file: transformed_data/20250701_135037_transformed.csv
-✅ REGIONS_DIM uploaded: True 415 rows
-✅ POWER_USAGE_FACT uploaded: True 5000 rows
+Loading file: transformed_data/20250701_135037_transformed.csv
+REGIONS_DIM uploaded: True 415 rows
+POWER_USAGE_FACT uploaded: True 5000 rows
 ```
 
 ---
@@ -253,11 +253,11 @@ This step introduces a fully interactive frontend dashboard to explore regional 
 
 ## Features
 
-- ✅ Region filter via dropdown (`/api/regions`)
-- ✅ Fetches demand data via FastAPI (`/api/data?region=...`)
-- ✅ Usage (MWh) bar chart for the most recent 20 records
-- ✅ Responsive data table (powered by TanStack Table)
-- ✅ Fully typed frontend using React + TypeScript
+- Region filter via dropdown (`/api/regions`)
+- Fetches demand data via FastAPI (`/api/data?region=...`)
+- Usage (MWh) bar chart for the most recent 20 records
+- Responsive data table (powered by TanStack Table)
+- Fully typed frontend using React + TypeScript
 
 ---
 
