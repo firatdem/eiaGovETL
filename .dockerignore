@@ -1,0 +1,25 @@
+# Keep credentials and local/generated files out of image layers.
+.git
+**/.git
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+*.pem
+*.key
+*.p12
+**/*.pem
+**/*.key
+**/*.p12
+**/credentials.json
+**/*service-account*.json
+**/application_default_credentials.json
+**/.aws
+**/.config/gcloud
+**/.venv
+**/venv
+**/__pycache__
+**/*.pyc
+**/node_modules

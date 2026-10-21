@@ -1,9 +1,19 @@
-FROM python:3.11-slim
+FROM python:3.11-slim@sha256:cce12316475d7d56d605f76e1d811d0dc4e7227f2d4afd29951521264f504ff8
+
+# Refresh system roots and both active and future Python installers.
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates=20250419+deb13u1 \
+    && update-ca-certificates --fresh && rm -rf /var/lib/apt/lists/*
+ADD --checksum=sha256:fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70 https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl /tmp/pip-26.2.2-py3-none-any.whl
+ADD --checksum=sha256:29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3 https://files.pythonhosted.org/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl /tmp/setuptools-83.0.0-py3-none-any.whl
+COPY security/runtime_trust.py /opt/security/runtime_trust.py
+RUN python /opt/security/runtime_trust.py bootstrap
 
 WORKDIR /app
 COPY . .
 
-RUN pip install --upgrade pip && \
-    pip install pandas requests snowflake-connector-python python-dotenv "pyarrow<19.0.0"
+RUN pip install certifi==2026.10.19 && \
+    pip install pandas requests snowflake-connector-python python-dotenv "pyarrow>=23.0.1"
+
+RUN python /opt/security/runtime_trust.py verify
 
 CMD ["python", "main.py"]
